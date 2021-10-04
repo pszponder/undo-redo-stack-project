@@ -113,6 +113,7 @@ inputArea.addEventListener("keydown", handleText);
 // Select Button DOM Elements
 const btnUndo = document.querySelector(".buttons__undo");
 const btnRedo = document.querySelector(".buttons__redo");
+const btnReset = document.querySelector(".buttons__reset");
 
 // Create Event Handlers for the Buttons
 function handleBtnUndo() {
@@ -169,9 +170,15 @@ function handleBtnRedo() {
   }
 }
 
+// Add event handler for reset
+function handleReset() {
+  window.location.reload(true);
+}
+
 // Add Event Listeners to the Buttons
 btnUndo.addEventListener("click", handleBtnUndo);
 btnRedo.addEventListener("click", handleBtnRedo);
+btnReset.addEventListener("click", handleReset);
 
 /*
 TODO:
