@@ -1,0 +1,35 @@
+/* ========= */
+/* RESET CSS */
+/* ========= */
+
+/* Globals */
+*::before,
+*::after,
+* {
+  /* Remove default margin and padding */
+  padding: 0;
+  margin: 0;
+
+  /* Enable inheritance of box-sizing */
+  box-sizing: inherit;
+}
+
+/* Set box-sizing and font-size default on root element */
+html {
+  /* 62.5% of 16px is 10px */
+  font-size: 62.5%;
+
+  /* Enable padding and border radius to be factored in when computing total element width and height */
+  box-sizing: border-box;
+}
+
+body {
+  /* Reset visible font-size to 16px default via rem units */
+  font-size: 1.6rem;
+
+  /* Set minimum height of body to be the height of the viewport */
+  min-height: 100vh;
+
+  /* Set default page width to 100% of parent (html element) */
+  width: 100%;
+}
