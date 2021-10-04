@@ -43,15 +43,12 @@ header {
 
 .stacks__undo,
 .stacks__redo {
-  /* margin: 0 95%; */
-
   /* Flex Item Properties */
   flex-grow: 1;
 
   /* Create Flex Container */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 }
 
 .stacks__stack {
@@ -59,7 +56,6 @@ header {
   max-width: 90%;
   min-height: 3rem;
   max-height: 100%;
-  text-align: center;
 
   /* Flex Item Properties */
   flex-grow: 1;
@@ -68,12 +64,19 @@ header {
   border-color: black;
   border-style: solid;
   border-width: 0px 0.5rem 0.5rem 0.5rem;
+
+  /* Flex Container */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .stacks__content {
-  margin: 1rem 0.5rem;
+  min-height: 2rem;
+  margin: 0 1rem 0.5rem 1rem;
   border: 0.1rem solid gray;
   background-color: lightgrey;
+  text-align: center;
 }
 
 .stacks__heading {
