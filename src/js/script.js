@@ -87,17 +87,24 @@ const inputArea = document.querySelector("#editor");
 function handleText(event) {
   const char = event.key;
 
+  // TODO: Incorporate backspace into functionality
+  // Disable backspace Default
+  if (char === "Backspace") {
+    event.preventDefault();
+    return;
+  }
+
   // Push char into the undo stack
   undo.push(char);
 
   // Create a new paragraph element with lastChar
-  const newElement = createNewElement(lastChar);
+  const newElement = createNewElement(char);
 
   // Add the new element to the Undo DOM Element
   domUndo.insertAdjacentElement("afterbegin", newElement);
 }
 
-inputArea.addEventListener("keyup", handleText);
+inputArea.addEventListener("keydown", handleText);
 
 // =======
 // BUTTONS
@@ -108,31 +115,71 @@ const btnUndo = document.querySelector(".buttons__undo");
 const btnRedo = document.querySelector(".buttons__redo");
 
 // Create Event Handlers for the Buttons
-// function handleBtnUndo() {
-//   // Extract the information from the text area
-//   let text = inputArea.value;
+function handleBtnUndo() {
+  // Pop off element from the undo stack
+  const lastChar = undo.pop();
 
-//   // Extract the last character from text
-//   const lastChar = text[text.length - 1];
+  // If the undo stack is empty, don't do anything
+  if (lastChar === "Underflow") {
+    return;
+  }
+  // Otherwise, add lastChar to redo stack and remove from text area
+  else {
+    redo.push(lastChar);
 
-//   // Update the value in the text area
-//   inputArea.value = text.slice(0, text.length - 1);
+    // Remove 1st child element from the undo stack DOM element
+    const firstChild = domUndo.firstElementChild;
+    domUndo.removeChild(firstChild);
 
-//   // Create a new paragraph element with lastChar
-//   const newElement = createNewElement(lastChar);
+    // Update the value in the text area
+    inputArea.value = undo.data.join("").toString();
 
-//   // Add the new element to the Undo DOM Element
-//   domUndo.insertAdjacentElement("afterbegin", newElement);
-// }
+    // Create a new paragraph element with lastChar
+    const newElement = createNewElement(lastChar);
 
-function handleButtonUndo() {}
+    // Add the new element to the Redo DOM Element
+    domRedo.insertAdjacentElement("afterbegin", newElement);
+  }
+}
 
-function handleBtnRedo() {}
+function handleBtnRedo() {
+  // Pop off element from the redo stack
+  const lastChar = redo.pop();
+
+  // If the undo stack is empty, don't do anything
+  if (lastChar === "Underflow") {
+    return;
+  }
+  // Otherwise, add lastChar to undo stack and add it to text area
+  else {
+    undo.push(lastChar);
+
+    // Remove 1st child element from the redo stack DOM element
+    const firstChild = domRedo.firstElementChild;
+    domRedo.removeChild(firstChild);
+
+    // Update the value in the text area
+    inputArea.value = undo.data.join("").toString();
+
+    // Create a new paragraph element with lastChar
+    const newElement = createNewElement(lastChar);
+
+    // Add the new element to the Undo DOM Element
+    domUndo.insertAdjacentElement("afterbegin", newElement);
+  }
+}
 
 // Add Event Listeners to the Buttons
 btnUndo.addEventListener("click", handleBtnUndo);
+btnRedo.addEventListener("click", handleBtnRedo);
 
 /*
+TODO:
+- Prevent variables other than letters and spaces being entered into text area
+- Incorporate backspace functionality int app in the text area
+  - How will backspace interact with undo/redo?
+
+COMPLETE:
 - every time the user enters text into the text area,
 the corresponding character is pushed into the undo stack
 - When the undo button is pressed,
