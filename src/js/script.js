@@ -86,22 +86,29 @@ const inputArea = document.querySelector("#editor");
 // Create an event handler to push every keystroke entered into the text area to the undo stack
 function handleText(event) {
   const char = event.key;
+  const charCode = event.keyCode;
+  console.log(charCode);
 
   // TODO: Incorporate backspace into functionality
-  // Disable backspace Default
-  if (char === "Backspace") {
+
+  // check if key pressed is a letter, a number, or space
+  if (
+    (charCode >= 65 && charCode <= 90) ||
+    (charCode >= 48 && charCode <= 57) ||
+    charCode === 32
+  ) {
+    // Push char into the undo stack
+    undo.push(char);
+
+    // Create a new paragraph element with lastChar
+    const newElement = createNewElement(char);
+
+    // Add the new element to the Undo DOM Element
+    domUndo.insertAdjacentElement("afterbegin", newElement);
+  } else {
     event.preventDefault();
     return;
   }
-
-  // Push char into the undo stack
-  undo.push(char);
-
-  // Create a new paragraph element with lastChar
-  const newElement = createNewElement(char);
-
-  // Add the new element to the Undo DOM Element
-  domUndo.insertAdjacentElement("afterbegin", newElement);
 }
 
 inputArea.addEventListener("keydown", handleText);
@@ -182,8 +189,7 @@ btnReset.addEventListener("click", handleReset);
 
 /*
 TODO:
-- Prevent variables other than letters and spaces being entered into text area
-- Incorporate backspace functionality int app in the text area
+- Incorporate backspace functionality into app in the text area
   - How will backspace interact with undo/redo?
 
 COMPLETE:
@@ -195,4 +201,6 @@ the corresponding character is pushed into the undo stack
 - When the redo button is pressed
   - The last item on the redo stack is popped off and pushed onto the undo stack
   - the item popped off is appended to the text in the text area
+- Prevent variables other than letters and spaces being entered into text area
+- Incorporate functionality to allow capital letters using shift
 */
