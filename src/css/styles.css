@@ -5,7 +5,7 @@ body {
   /* Create Flex Container */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -24,6 +24,7 @@ header {
 /* =========== */
 .app {
   width: 50%;
+  margin-bottom: 5rem;
 
   /* Create Flex Container */
   display: flex;
