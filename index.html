@@ -4,7 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undo / Redo Stack Project</title>
+    <title>Undo / Redo Stack Visualizer</title>
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <script type="module" src="./src/js/script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <h1>Undo / Redo Stack Project</h1>
+      <div class="stacks">
+        <div class="stack__undo"></div>
+        <div class="stack__redo"></div>
+      </div>
+      <textarea id="editor" cols="30" rows="10"></textarea>
+      <div class="buttons">
+        <button class="buttons__undo btn">UNDO</button>
+        <button class="buttons__redo btn">REDO</button>
+      </div>
+    </div>
+  </body>
 </html>
