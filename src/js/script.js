@@ -87,9 +87,6 @@ const inputArea = document.querySelector("#editor");
 function handleText(event) {
   const char = event.key;
   const charCode = event.keyCode;
-  console.log(charCode);
-
-  // TODO: Incorporate backspace into functionality
 
   // check if key pressed is a letter, a number, or space
   if (
@@ -105,7 +102,12 @@ function handleText(event) {
 
     // Add the new element to the Undo DOM Element
     domUndo.insertAdjacentElement("afterbegin", newElement);
-  } else {
+  } else if (charCode === 8) {
+    event.preventDefault();
+    handleBtnUndo();
+  }
+  // Prevent action from occurring otherwise
+  else {
     event.preventDefault();
     return;
   }
@@ -189,8 +191,7 @@ btnReset.addEventListener("click", handleReset);
 
 /*
 TODO:
-- Incorporate backspace functionality into app in the text area
-  - How will backspace interact with undo/redo?
+
 
 COMPLETE:
 - every time the user enters text into the text area,
@@ -203,4 +204,6 @@ the corresponding character is pushed into the undo stack
   - the item popped off is appended to the text in the text area
 - Prevent variables other than letters and spaces being entered into text area
 - Incorporate functionality to allow capital letters using shift
+- Incorporate backspace functionality into app in the text area
+  - How will backspace interact with undo/redo?
 */
