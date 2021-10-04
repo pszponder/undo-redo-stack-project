@@ -10,17 +10,29 @@
     <script type="module" src="./src/js/script.js" defer></script>
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Undo / Redo Stack Project</h1>
+    <header class="header">
+      <h1 class="header__h1">Undo / Redo Stack Project</h1>
+    </header>
+    <main class="app">
       <div class="stacks">
-        <div class="stack__undo"></div>
-        <div class="stack__redo"></div>
+        <div class="stacks__undo">
+          <div class="stacks__stack"></div>
+          <h2 class="stacks__heading">Undo Stack</h2>
+        </div>
+        <div class="stacks__redo">
+          <div class="stacks__stack">
+            <p class="stacks__content">c</p>
+            <p class="stacks__content">b</p>
+            <p class="stacks__content">a</p>
+          </div>
+          <h2 class="stacks__heading">Redo Stack</h2>
+        </div>
       </div>
       <textarea id="editor" cols="30" rows="10"></textarea>
       <div class="buttons">
         <button class="buttons__undo btn">UNDO</button>
         <button class="buttons__redo btn">REDO</button>
       </div>
-    </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,102 @@
+/* ==== */
+/* BODY */
+/* ==== */
+body {
+  /* Create Flex Container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ====== */
+/* HEADER */
+/* ====== */
+header {
+  /* Create Flex Container */
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
+/* =========== */
+/* APPLICATION */
+/* =========== */
+.app {
+  width: 50%;
+
+  /* Create Flex Container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ====== */
+/* STACKS */
+/* ====== */
+
+.stacks {
+  /* Create Flex Container */
+  display: flex;
+  justify-content: space-between;
+}
+
+.stacks__undo,
+.stacks__redo {
+  /* margin: 0 95%; */
+
+  /* Flex Item Properties */
+  flex-grow: 1;
+
+  /* Create Flex Container */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.stacks__stack {
+  /* Width and Height */
+  max-width: 90%;
+  min-height: 3rem;
+  max-height: 100%;
+  text-align: center;
+
+  /* Flex Item Properties */
+  flex-grow: 1;
+
+  /* Border */
+  border-color: black;
+  border-style: solid;
+  border-width: 0px 0.5rem 0.5rem 0.5rem;
+}
+
+.stacks__content {
+  margin: 1rem 0.5rem;
+  border: 0.1rem solid gray;
+  background-color: lightgrey;
+}
+
+.stacks__heading {
+  text-align: center;
+}
+
+/* ====== */
+/* EDITOR */
+/* ====== */
+#editor {
+  margin: 3rem;
+}
+
+/* ======= */
+/* BUTTONS */
+/* ======= */
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 0 2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
