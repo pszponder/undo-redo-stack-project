@@ -25,12 +25,17 @@ The Purpose of this challenge is to implement undo redo functionality using the 
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://github.com/pszponder/undo-redo-stack-project](https://github.com/pszponder/undo-redo-stack-project)
+- Live Site URL: [https://pszponder.github.io/undo-redo-stack-project/](https://pszponder.github.io/undo-redo-stack-project/)
 
 ### Built with
 
+Flexbox
+JavaScript
+
 ### What I learned
+
+This project has been very helpful in making me understand how the undo and redo functionality of many programs work when using the stack data structure. I think it is really neat to be able to visually show how the undo and redo stacks work in tandem with the text editor to enable the undo and redo functionality to the user.
 
 ### Continued development
 
