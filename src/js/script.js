@@ -3,48 +3,6 @@
 // ====================
 
 import { Stack } from "./Stack.js";
-// class Stack {
-//   constructor() {
-//     this.data = [];
-//     this.last = 0;
-//   }
-
-//   // push
-//   push(value) {
-//     this.data[this.last] = value;
-//     this.last++;
-//     return this;
-//   }
-
-//   // pop
-//   pop() {
-//     if (this.isEmpty()) {
-//       return "Underflow";
-//     }
-
-//     this.last--;
-//     return this.data.splice(this.last, 1)[0];
-//   }
-
-//   // length
-//   length() {
-//     return this.data.length;
-//   }
-
-//   // isEmpty
-//   isEmpty() {
-//     let empty = false;
-//     if (this.data.length === 0) {
-//       empty = true;
-//     }
-//     return empty;
-//   }
-
-//   // Print function
-//   print() {
-//     console.log(this.data);
-//   }
-// }
 
 // ======
 // STACKS
@@ -72,11 +30,6 @@ function createNewElement(value) {
 
   return newElement;
 }
-
-// Define function to update stack
-// function updateStack(stack, method) {
-//   stack.method();
-// }
 
 // =========
 // TEXT AREA
@@ -190,22 +143,3 @@ function handleReset() {
 btnUndo.addEventListener("click", handleBtnUndo);
 btnRedo.addEventListener("click", handleBtnRedo);
 btnReset.addEventListener("click", handleReset);
-
-/*
-TODO:
-
-
-COMPLETE:
-- every time the user enters text into the text area,
-the corresponding character is pushed into the undo stack
-- When the undo button is pressed,
-  - The last item off of the undo stack is pushed onto the redo stack
-  - The last item in the text area is also removed
-- When the redo button is pressed
-  - The last item on the redo stack is popped off and pushed onto the undo stack
-  - the item popped off is appended to the text in the text area
-- Prevent variables other than letters and spaces being entered into text area
-- Incorporate functionality to allow capital letters using shift
-- Incorporate backspace functionality into app in the text area
-  - How will backspace interact with undo/redo?
-*/
