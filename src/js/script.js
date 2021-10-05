@@ -1,48 +1,50 @@
 // ====================
 // STACK DATA STRUCTURE
 // ====================
-class Stack {
-  constructor() {
-    this.data = [];
-    this.last = 0;
-  }
 
-  // push
-  push(value) {
-    this.data[this.last] = value;
-    this.last++;
-    return this;
-  }
+import { Stack } from "./Stack.js";
+// class Stack {
+//   constructor() {
+//     this.data = [];
+//     this.last = 0;
+//   }
 
-  // pop
-  pop() {
-    if (this.isEmpty()) {
-      return "Underflow";
-    }
+//   // push
+//   push(value) {
+//     this.data[this.last] = value;
+//     this.last++;
+//     return this;
+//   }
 
-    this.last--;
-    return this.data.splice(this.last, 1)[0];
-  }
+//   // pop
+//   pop() {
+//     if (this.isEmpty()) {
+//       return "Underflow";
+//     }
 
-  // length
-  length() {
-    return this.data.length;
-  }
+//     this.last--;
+//     return this.data.splice(this.last, 1)[0];
+//   }
 
-  // isEmpty
-  isEmpty() {
-    let empty = false;
-    if (this.data.length === 0) {
-      empty = true;
-    }
-    return empty;
-  }
+//   // length
+//   length() {
+//     return this.data.length;
+//   }
 
-  // Print function
-  print() {
-    console.log(this.data);
-  }
-}
+//   // isEmpty
+//   isEmpty() {
+//     let empty = false;
+//     if (this.data.length === 0) {
+//       empty = true;
+//     }
+//     return empty;
+//   }
+
+//   // Print function
+//   print() {
+//     console.log(this.data);
+//   }
+// }
 
 // ======
 // STACKS
